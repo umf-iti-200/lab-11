@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser")
 const Pool = require('pg').Pool
 
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended: true}));
 
 const pool = new Pool({
     host: 'localhost',
@@ -11,6 +13,7 @@ const pool = new Pool({
     password: 'postgres',
     port: 5432,
 })
+
 
 // Add here your routes
 
